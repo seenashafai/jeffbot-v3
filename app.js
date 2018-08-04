@@ -42,7 +42,19 @@ bot.on('message', message =>  {
     message.channel.send(message.author, jeffString)
     message.author.send('You just got Jeffed! Tag your friends to Jeff them also!')
   }
+
+
+  if (message.channel.id === '471644943685910528')
+  {
+    if (message.member.roles.has('475333748620001280'))
+    {
+      console.log("has jeff")
+      message.channel.send("has jeff")
+    }
+  }
 });
+
+
 
 bot.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
