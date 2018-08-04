@@ -27,17 +27,19 @@ bot.on('message', message =>  {
     var msgcontent = message.content
     console.log(msgcontent)
     message.delete()
-    message.channel.send('Get Jeffed')
     var splitStringArray = msgcontent.split(" ")
     console.log(splitStringArray)
     var msgWordCount = splitStringArray.length
     console.log(msgWordCount)
 
     var i;
+    var jeffArray = [];
     for (i = 0; i < msgWordCount; i++) {
-        message.channel.send('Jeff')
+        jeffArray.push('jeff')
     }
-
+    console.log(jeffArray)
+    jeffString = jeffArray.join(" ")
+    message.channel.send(message.author, jeffString)
     message.author.send('You just got Jeffed! Tag your friends to Jeff them also!')
   }
 });
