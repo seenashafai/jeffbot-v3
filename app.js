@@ -12,10 +12,23 @@ bot.on('message', message =>  {
   var msg = message.content.toUpperCase();
   var prefix = ">"
 
+  //Checks for botception
+  if (message.author.bot) return;
+
   //Ping Pong
   if (msg === prefix + 'Ping')
   {
     message.channel.send('Pong!')
+  }
+
+  //Applies only to channel: get-jeffed
+  if (message.channel.id === '475319240552087552')
+  {
+    var msgcontent = message.content
+    console.log(msgcontent)
+    message.delete()
+    message.channel.send('Get Jeffed')
+    message.author.send('You just got Jeffed! Tag your friends to Jeff them also!')
   }
 });
 
@@ -33,6 +46,9 @@ bot.on("ready", () => {
     bot.user.setActivity(`Serving ${bot.guilds.size} Guild`)
   }
 });
+
+
+
 
 //Login
 bot.login(config.token);
