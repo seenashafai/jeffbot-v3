@@ -7,12 +7,12 @@ End Goal: For any given message in any chat channel, the bot should be able to d
 
 The message must be deleted and reposted, rather than edited as Discord's Terms of Service do not allow editing of other users' messages for obvious reasons
 
-_Development Files:  
+_Development Files_:  
 
 	* app.js: Contains the code executed by the bot after being activated 
 	
 	* config.js: Contains confidential information about the bot
 
-_Additional Notes:
+_Additional Notes_:
 
 The message must be deleted and reposted, rather than edited as Discord's Terms of Service do not allow editing of other users' messages for obvious reasons
