@@ -1,69 +1,66 @@
-//Calling Discord.js Package
-const Discord = require('discord.js');
-const bot = new Discord.Client();
-const config = require('./config.json')
+/* Calls */
+const Discord = require('discord.js'); //Calling discord.js Package
+const config = require('./config.json'); //Calling config.js File
+const bot = new Discord.Client(); //Initialise discord bot instance
 
-
-//Listener Event: Message Received
+/* Listener Event: Message Received */
 bot.on('message', message =>  {
 
-  //Variables
+  /* Variables */
   var sender = message.author;
-  var msg = message.content.toUpperCase();
-  var prefix = ">"
+  var msg = message.content.toUpperCase(); //Converts entire message to upper case
+  var prefix = (config.prefix); //Declares prefix as defined in config.js file
 
-  //Checks for botception
+  /* Checks for botception */
   if (message.author.bot) return;
 
-  //Ping Pong
-  if (msg === prefix + 'Ping')
+  /* Ping Pong Function */
+  if (msg === prefix + 'PING') //Checks for presence of prefix
   {
-    message.channel.send('Pong!')
+    message.channel.send('Pong!') //Send 'Pong' in chat channel
   }
 
-  if (message.member.roles.has('475333748620001280'))
+  /* Delete message and replace with Jeffs */
+  if (message.member.roles.has('475333748620001280')) //Checks for role (Jeff), Role ID hardcoded
   {
-    var msgcontent = message.content
-    console.log(msgcontent)
-    message.delete()
-    var splitStringArray = msgcontent.split(" ")
-    console.log(splitStringArray)
-    var msgWordCount = splitStringArray.length
-    console.log(msgWordCount)
+    /*  Handling original user message */
+    console.log(message.msgcontent); //Output the message from the user to the console
+    message.delete(); //Delete the user's message from the chat channel
+    var splitStringArray = msgcontent.split(" "); //Split message into words, create array of words
+    var msgWordCount = splitStringArray.length; //Check how many words in the original message
+    console.log(msgWordCount); //Output number of words in original message to console
 
-    var i;
-    var jeffArray = [];
-    for (i = 0; i < msgWordCount; i++) {
-        jeffArray.push('jeff')
+    /*  For Loop to create array of 'jeff' */
+    var i; //Declare loop variable
+    var jeffArray = []; //Declare empty array
+    for (i = 0; i < msgWordCount; i++) { //Loop through for number of words in message
+        jeffArray.push('jeff') //Push 'jeff' to jeffArray
     }
-    console.log(jeffArray)
-    jeffString = jeffArray.join(" ")
-    message.channel.send(jeffString)
-    message.author.send('You just got Jeffed! Tag your friends to Jeff them also!')
+
+    /* Outputting jeffArray */
+    jeffString = jeffArray.join(" "); //Turn array into string separated with spaces
+    message.channel.send(jeffString); //Send jeffString into chat channel
+    message.author.send('You just got Jeffed! Tag your friends to Jeff them also!') //PM author of original message
   }
-
-
 });
 
 
-
+/* Event: Bot startup & successful login*/
 bot.on("ready", () => {
-  // This event will run if the bot starts, and logs in, successfully.
+
+  //Output basic statistics of bot to console
   console.log(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`);
-  // Example of changing the bot's playing game to something useful. `client.user` is what the
-  // docs refer to as the "ClientUser".
-  if (bot.guilds.size > 1)
+
+  /* Set Bot Activity */
+  if (bot.guilds.size > 1); //If bot is serving more than 1 guild
   {
-    bot.user.setActivity(`Serving ${bot.guilds.size} Guilds`)
+    bot.user.setActivity(`Serving ${bot.guilds.size} Guilds`); //Set Activity
   }
-  else
+  else //If bot is serving less than 2 guilds
   {
-    bot.user.setActivity(`Serving ${bot.guilds.size} Guild`)
+    bot.user.setActivity(`Serving ${bot.guilds.size} Guild`); //Set Activity
   }
 });
 
-
-
-
-//Login
-bot.login(config.token);
+/* Login */
+bot.login(config.token); //Bot login with token defined in congfig.js

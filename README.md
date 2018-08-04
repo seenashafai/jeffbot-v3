@@ -5,16 +5,19 @@ Currently working on basic functionality
 
 End Goal: For any given message in any chat channel, the bot should be able to delete the message and replace it with an identical one, except every word is replaced with 'Jeff', whilst keeping the puncuation the same.
 
+_Uses_:
+
+Best used as a mute function: assign the user in question with the Role, then add the Role ID to the relevant section in ```app.js``` and watch as the user is unable to send any messages. Instead, for every message they send, JeffBot will post a message with every word replaced with Jeff. The user will also receive a DM from JeffBot announcing to them that they have been Jeffed.
 
 _Development Files_:  
 
 	app.js: Contains the code executed by the bot after being activated
-	
+
 	config.js: Contains confidential information about the bot
 
 
-_Config.js Setup_: 
-	
+_Config.js Setup_:
+
 As the ``` config.js ``` file contains confidential information, you need to construct the file yourself if you want to use this code. Set up the file as such:
 
 ```
