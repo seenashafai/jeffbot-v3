@@ -8,20 +8,21 @@ End Goal: For any given message in any chat channel, the bot should be able to d
 
 _Development Files_:  
 
-	* app.js: Contains the code executed by the bot after being activated 
+	``` app.js: Contains the code executed by the bot after being activated ```
 	
-	* config.js: Contains confidential information about the bot
+	``` config.js: Contains confidential information about the bot```
 
 
 _Config.js Setup_: 
 	
-As the * config.js * file contains confidential information, you need to construct the file yourself if you want to use this code. Set up the file as such:
+As the ``` config.js ``` file contains confidential information, you need to construct the file yourself if you want to use this code. Set up the file as such:
 
-	* 	{
-  		 "token": "YOUR-TOKEN-HERE", //Token retrieved from your discord developer portal
-   		 "prefix": ">" //Prefix for bot commands- can be set to anything
-		}
-
+```
+{
+	"token": "YOUR-TOKEN-HERE", //Token retrieved from your discord developer portal
+   	"prefix": ">" //Prefix for bot commands- can be set to anything
+}
+```
 
 _Additional Notes_:
 
