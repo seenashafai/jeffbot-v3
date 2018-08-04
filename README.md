@@ -8,9 +8,9 @@ End Goal: For any given message in any chat channel, the bot should be able to d
 
 _Development Files_:  
 
-	``` app.js: Contains the code executed by the bot after being activated ```
+	app.js: Contains the code executed by the bot after being activated
 	
-	``` config.js: Contains confidential information about the bot```
+	config.js: Contains confidential information about the bot
 
 
 _Config.js Setup_: 
