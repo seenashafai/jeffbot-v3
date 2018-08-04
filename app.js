@@ -21,8 +21,7 @@ bot.on('message', message =>  {
     message.channel.send('Pong!')
   }
 
-  //Applies only to channel: get-jeffed
-  if (message.channel.id === '475319240552087552')
+  if (message.member.roles.has('475333748620001280'))
   {
     var msgcontent = message.content
     console.log(msgcontent)
@@ -39,19 +38,11 @@ bot.on('message', message =>  {
     }
     console.log(jeffArray)
     jeffString = jeffArray.join(" ")
-    message.channel.send(message.author, jeffString)
+    message.channel.send(jeffString)
     message.author.send('You just got Jeffed! Tag your friends to Jeff them also!')
   }
 
 
-  if (message.channel.id === '471644943685910528')
-  {
-    if (message.member.roles.has('475333748620001280'))
-    {
-      console.log("has jeff")
-      message.channel.send("has jeff")
-    }
-  }
 });
 
 
