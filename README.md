@@ -9,6 +9,6 @@ The message must be deleted and reposted, rather than edited as Discord's Terms 
 
 Development Files:  
 
-	*	app.js: Contains the code executed by the bot after being activated . 
+	* app.js: Contains the code executed by the bot after being activated 
 	
-	*	config.js: Contains confidential information about the bot . 
+	* config.js: Contains confidential information about the bot
