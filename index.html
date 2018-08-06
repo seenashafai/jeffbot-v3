@@ -1,0 +1,53 @@
+<!-- This is a static file -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JeffBot has arrived!</title>
+    <meta name="description" content="A simple discord bot named jeff">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        A Jeff of the Future
+      </h1>
+      <a href="https://discordapp.com/oauth2/authorize?client_id=472722365906681857&scope=bot"> Invite JeffBot to your server now! </a>
+    </header>
+
+    <main>
+      <p class="bold">Oh hi,</p>
+
+      <p>Tell me your hopes and jeffs:</p>
+
+      <form>
+        <input name="jeff" type="text" maxlength="100" placeholder="Jeffs!" aria-labelledby="submit-jeff">
+        <button type="submit" id="submit-jeff">Submit Jeff</button>
+      </form>
+
+      <section class="jeff">
+        <ul id="jeff"></ul>
+      </section>
+    </main>
+
+    <footer>
+      Made with <a href="https://glitch.com">Glitch</a>!
+    </footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+
+  </body>
+</html>
