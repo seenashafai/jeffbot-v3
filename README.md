@@ -33,5 +33,5 @@ For deployment onto a server (i.e. for 24/7 uptime), use instead the files insid
 
 _Additional Notes_:
 
-The message must be deleted and reposted, rather than edited as Discord's Terms of Service do not allow editing of other users' messages for obvious reasons
+The way the bot 'replaces' the users' message with 'Jeff' is through deleting the original message and reposting a new 'Jeffed' message, rather than editing the original authors' message. The message must be deleted and reposted, rather than edited as Discord's Terms of Service do not allow editing of other users' messages for obvious reasons
 
