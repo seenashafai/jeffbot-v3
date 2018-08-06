@@ -26,6 +26,12 @@ As the ``` config.js ``` file contains confidential information, you need to con
 }
 ```
 
+_Server Deployment Package_:
+
+For deployment onto a server (i.e. for 24/7 uptime), use instead the files inside the Server Deployment Package. Inside the folder, `server.js` replaces `app.js`, and the only other file required is `config.js` which should be set up as explained above. The style, syntax, and index files can also be found in the SDP, but don't necessarily need to be used. 
+
+
 _Additional Notes_:
 
 The message must be deleted and reposted, rather than edited as Discord's Terms of Service do not allow editing of other users' messages for obvious reasons
+
