@@ -12,7 +12,7 @@ _Development Files_:
 
 	app.js: Contains the code executed by the bot after being activated
 
-	config.js: Contains confidential information about the bot
+	config.js: Contains secret token & basic global configuration of the bot, inc. prefix
 
 
 _Config.js Setup_:
