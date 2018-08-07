@@ -20,7 +20,7 @@ const appendNewDream = function(dream) {
   const newListItem = document.createElement('li');
   newListItem.innerHTML = dream;
   dreamsList.appendChild(newListItem);
-}
+};
 
 // iterate through every jeff and add it to  page
 dreams.forEach( function(dream) {

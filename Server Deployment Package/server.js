@@ -7,10 +7,10 @@ const express = require('express');
 const app = express();
 
 //global variables
-var jeffRole = ''
+var jeffRole = '';
 
 //global constants
-var prefix = ">"
+var prefix = ">";
 
 /* Calls */
 const Discord = require('discord.js'); //Calling discord.js Package
@@ -40,24 +40,24 @@ bot.on('message', message =>  {
 
   if (msg === ">" + 'START')
   {
-      message.guild.createRole({name:'Jeff'})
-      message.channel.send('It is done')
+      message.guild.createRole({name:'Jeff'});
+      message.channel.send('It is done');
       jeffRole = message.guild.roles.find("name", "Jeff")
 
   }
 
     if (msg === ">" + 'FINDJEFF')
   {
-      console.log(jeffRole.name)
-      console.log(jeffRole.id)
+      console.log(jeffRole.name);
+      console.log(jeffRole.id);
       message.channel.send(jeffRole.name)
   }
 
     if (command === 'jefficate')
   {
-      jeffRole = message.guild.roles.find("name", "Jeff")
-      console.log(jeffRole.name)
-      console.log(jeffRole.id)
+      jeffRole = message.guild.roles.find("name", "Jeff");
+      console.log(jeffRole.name);
+      console.log(jeffRole.id);
       message.channel.send(jeffRole.name)
   }
 
@@ -67,15 +67,15 @@ bot.on('message', message =>  {
   if (message.member.roles.has(jeffRole.id)) //Checks for role (Jeff), Role ID hardcoded
   {
     /*  Handling original user message */
-    var msgcontent = message.content
-    message.delete() //Delete the user's message from the chat channel
-    var splitStringArray = msgcontent.split(" ") //Split message into words, create array of words
-    var msgWordCount = splitStringArray.length //Check how many words in the original message
+    var msgcontent = message.content;
+    message.delete(); //Delete the user's message from the chat channel
+    var splitStringArray = msgcontent.split(" "); //Split message into words, create array of words
+    var msgWordCount = splitStringArray.length; //Check how many words in the original message
 
     /*  For Loop to create array of 'jeff' */
     var i; //Declare loop variable
     var jeffArray = []; //Declare empty array
-    jeffArray.push('Jeff')
+    jeffArray.push('Jeff');
     if (msgWordCount > 1)
     {
       for (i = 0; i < msgWordCount-1; i++) { //Loop through for number of words in message
