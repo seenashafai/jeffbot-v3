@@ -77,7 +77,8 @@ bot.on('message', message =>  {
         console.log(member,'unjefficated');
         console.log(jeffRole.id)
     }
-
+  
+    //MARK: - TODO
     if (command === 'setmod')
     {
         console.log(message.guild.members.get(args[0]));
