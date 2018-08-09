@@ -4,6 +4,9 @@
 /* Initialise Project & discord.js Calls */
 const Discord = require('discord.js'); //Calling discord.js Package
 const config = require('./config.json'); //Calling config.js File
+const fs = require('fs'); //Required for logging
+const date = require('Date');
+
 const bot = new Discord.Client(); //Initialise discord bot instance
 
 //global variables
@@ -18,6 +21,8 @@ const prefix = (config.prefix); //Declares prefix as defined in config.js file
 /* Listener Event: Message Received */
 bot.on('message', message => {
 
+    var stream = fs.createWriteStream('log.txt');
+
     /* Command-Argument separator */
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
@@ -31,7 +36,10 @@ bot.on('message', message => {
     /* Ping Pong Function */
     if (msg === prefix + 'PING') //Checks for presence of prefix
     {
-        message.channel.send('Pong!') //Send 'Pong' in chat channel
+        message.channel.send('Pong!'); //Send 'Pong' in chat channel
+        stream.once('open', function (fd) {
+            stream.write(now() + "Pongged user " + message.author);
+        })
     }
 
     /* Initialise bot in server function */
