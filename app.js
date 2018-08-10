@@ -47,7 +47,8 @@ bot.on('message', async message =>  {
     if (msg === prefix + 'PING') //Checks for presence of prefix
     {
         const m = await message.channel.send("Ping?");
-        m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
+        m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms.
+         API Latency is ${Math.round(bot.ping)}ms`);
         message.channel.send('Pong!') //Send 'Pong' in chat channel
     }
 
@@ -59,7 +60,7 @@ bot.on('message', async message =>  {
     {
         message.guild.createRole({name:'Jeff'});
         message.channel.send('It is done');
-        jeffRole = message.guild.roles.find("name", "Jeff")
+        jeffRole = message.guild.roles.find("name", "Jeff");
         message.channel.send('Please now use >jeffinate to begin the rise of the Jeffinators')
     }
 
@@ -73,10 +74,11 @@ bot.on('message', async message =>  {
 
     if (msg === prefix + 'FINDJEFF')
     {
-        jeffRole = message.guild.roles.find("name", "Jeff")
+        jeffRole = message.guild.roles.find("name", "Jeff");
         if (!jeffRole)
         {
-            message.channel.send('JeffBot cannot find his Jeff role. Please delete any roles called Jeff and then run >start')
+            message.channel.send('JeffBot cannot find his Jeff role. ' +
+                'Please delete any roles called Jeff and then run >start')
         }
         else
         {
@@ -86,10 +88,11 @@ bot.on('message', async message =>  {
 
     if (msg === prefix + 'FINDJEFFINATOR')
     {
-        jeffinatorRole = message.guild.roles.find("name", "Jeffinator")
+        jeffinatorRole = message.guild.roles.find("name", "Jeffinator");
         if (!jeffRole)
         {
-            message.channel.send('JeffBot cannot find his Jeffinator role. Please delete any roles called Jeffinator and then run >jeffinate')
+            message.channel.send('JeffBot cannot find his Jeffinator role. ' +
+                'Please delete any roles called Jeffinator and then run >jeffinate')
         }
         else
         {
@@ -100,14 +103,14 @@ bot.on('message', async message =>  {
     if (msg === prefix + 'PURGEJEFF')
     {
         console.log('purgejeff');
-        message.channel.send('Execute order Jeffty-Jeff')
-        message.guild.roles.get(jeffRole.id).delete()
+        message.channel.send('Execute order Jeffty-Jeff');
+        message.guild.roles.get(jeffRole.id).delete();
         message.channel.send('It is done my lord')
     }
 
     if (command === 'jefficate')
     {
-        jeffinatorRole = message.guild.roles.find("name", "Jeffinator")
+        jeffinatorRole = message.guild.roles.find("name", "Jeffinator");
         if (message.member.roles.has(jeffinatorRole.id))
         {
             jeffRole = message.guild.roles.find("name", "Jeff");
@@ -150,7 +153,7 @@ bot.on('message', async message =>  {
 
     if (command === 'jeffinate')
     {
-        jeffinatorRole = message.guild.roles.find("name", "Jeffinator")
+        jeffinatorRole = message.guild.roles.find("name", "Jeffinator");
         if (message.member.roles.has(jeffinatorRole.id))
         {
             let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -200,8 +203,10 @@ bot.on('message', async message =>  {
 bot.on("ready", () => {
 
     //Output basic statistics of bot to console
-    console.log(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`);
-    logger.info(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`)
+    console.log(`Bot has started, with ${bot.users.size} users,
+     in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`);
+    logger.info(`Bot has started, with ${bot.users.size} users,
+     in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`);
     bot.user.setActivity(`Serving ${bot.users.size} Jeffs in ${bot.guilds.size} Guilds`) //Set Activity
     //bot.user.setActivity(`Performing Maintenance - May be unresponsive`) //Set Maintenence Activity
 
