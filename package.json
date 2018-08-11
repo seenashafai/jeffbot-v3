@@ -1,20 +1,16 @@
 {
   "name": "jeffbot-v3",
-  "version": "v0.3.0-alpha",
+  "version": "v0.4.0-alpha",
   "description": "A simple Discord bot coded with Node JS called Jeff",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
     "date": "^1.0.2",
-    "discord-blackhole.logger": "^1.1.6",
     "discord.js": "^11.3.2",
     "express": "^4.16.3",
-    "log4js": "^3.0.4",
     "mkdirp-sync": "^0.0.3",
-    "yarn": "^1.9.4"
   },
   "engines": {
     "node": "8.11.3"
