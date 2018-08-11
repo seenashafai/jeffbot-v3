@@ -2,7 +2,7 @@
 // To launch server, enter 'node server.js' in terminal
 
 /* Initialise Project Server Calls */
-const http = require('http');
+//const http = require('http');
 const express = require('express');
 const fs = require('fs');
 const app = express();
@@ -30,8 +30,8 @@ const embed = new Discord.RichEmbed()
 //global variables
 var jeffRole = '';
 var jeffinatorRole = '';
-var modRole = '';
-var modArray = [];
+//var modRole = '';
+//var modArray = [];
 
 //global constants
 const prefix = ">";
@@ -54,9 +54,10 @@ bot.on('message', async message => {
     if (msg === ">" + 'PING') //Checks for presence of prefix
     {
         const m = await message.channel.send("Ping?");
-        m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
-        var timenow = Date.now();
-        fs.appendFile("public/log.log", timenow + " Pongged user " + message.author.username + '(' + message.author + ') on server '+ message.guild.name + '\n', function (err) {
+        m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms.
+         API Latency is ${Math.round(bot.ping)}ms`);
+        fs.appendFile("public/log.log", Date.now() + " Pongged user " + message.author.username +
+            '(' + message.author + ') on server '+ message.guild.name + '\n', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -65,8 +66,8 @@ bot.on('message', async message => {
     if (msg === ">" + 'HELP')
     {
         message.channel.send({embed});
-        var timenow = Date.now();
-        fs.appendFile("public/log.log", timenow + " Helped user " + message.author.username + '(' + message.author +') on server '+ message.guild.name +  ')\n', function (err) {
+        fs.appendFile("public/log.log", Date.now() + " Helped user " + message.author.username +
+            '(' + message.author +') on server '+ message.guild.name +  ')\n', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -78,8 +79,8 @@ bot.on('message', async message => {
         message.channel.send('It is done');
         jeffRole = message.guild.roles.find("name", "Jeff");
         message.channel.send('Please now use >jeffinate to begin the rise of the Jeffinators');
-        var timenow = Date.now();
-        fs.appendFile("public/log.log", timenow + " Initialized Jeff on server " + message.guild.name + '\n', function (err) {
+        fs.appendFile("public/log.log", Date.now() + " Initialized Jeff on server " +
+            message.guild.name + '\n', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -96,13 +97,14 @@ bot.on('message', async message => {
     {
         jeffRole = message.guild.roles.find("name", "Jeff");
         if (!jeffRole) {
-            message.channel.send('JeffBot cannot find his Jeff role. Please delete any roles called Jeff and then run >start')
+            message.channel.send('JeffBot cannot find his Jeff role.' +
+                ' Please delete any roles called Jeff and then run >start')
         }
         else {
             message.channel.send('Never fear, Jeff is indeed here')
         }
-        var timenow = Date.now();
-        fs.appendFile("public/log.log", timenow + " Jeff was searched for by user " + message.author.username + '(' + message.author + ') on server '+ message.guild.name + '\n', function (err) {
+        fs.appendFile("public/log.log", Date.now() + " Jeff was searched for by user " + message.author.username +
+            '(' + message.author + ') on server '+ message.guild.name + '\n', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -111,13 +113,14 @@ bot.on('message', async message => {
     if (msg === ">" + 'FINDJEFFINATOR') {
         jeffinatorRole = message.guild.roles.find("name", "Jeffinator");
         if (!jeffRole) {
-            message.channel.send('JeffBot cannot find his Jeffinator role. Please delete any roles called Jeffinator and then run >jeffinate')
+            message.channel.send('JeffBot cannot find his Jeffinator role. ' +
+                'Please delete any roles called Jeffinator and then run >jeffinate')
         }
         else {
             message.channel.send('Never fear, Jeffinator is indeed here')
         }
-        var timenow = Date.now();
-        fs.appendFile("public/log.log", timenow + " Jeffinator was serached for by user " + message.author.username + '(' + message.author +') on server '+ message.guild.name +  '\n', function (err) {
+        fs.appendFile("public/log.log", Date.now() + " Jeffinator was serached for by user " + message.author.username +
+            '(' + message.author +') on server '+ message.guild.name +  '\n', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -129,8 +132,8 @@ bot.on('message', async message => {
         message.channel.send('Execute order Jeffty-Jeff');
         message.guild.roles.get(jeffRole.id).delete();
         message.channel.send('It is done my lord');
-        var timenow = Date.now();
-        fs.appendFile("public/log.log", timenow + " Jeff was purged by user " + message.author.username + '(' + message.author + ') on server '+ message.guild.name + '\n', function (err) {
+        fs.appendFile("public/log.log", Date.now() + " Jeff was purged by user " + message.author.username +
+            '(' + message.author + ') on server '+ message.guild.name + '\n', function (err) {
             if (err) {
                 return console.log(err);
             }
@@ -228,8 +231,10 @@ bot.on('message', async message => {
 bot.on("ready", () => {
 
     //Output basic statistics of bot to console
-    console.log(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`);
-    //logger.info(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`)
+    console.log(`Bot has started, with ${bot.users.size} users, 
+    in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`);
+    //logger.info(`Bot has started, with ${bot.users.size} users,
+    // in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`)
     bot.user.setActivity(`Serving ${bot.users.size} Jeffs in ${bot.guilds.size} Guilds`) //Set Activity
     //bot.user.setActivity(`Performing Maintenance - May be unresponsive`) //Set Maintenence Activity
 
