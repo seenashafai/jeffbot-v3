@@ -4,8 +4,7 @@
 /* Initialise Project Server Calls */
 const http = require('http');
 const express = require('express');
-const date = require('date');
-var fs = require('fs');
+const fs = require('fs');
 const app = express();
 
 /* Initialise discord.js Calls */
@@ -62,8 +61,7 @@ bot.on('message', async message => {
                 return console.log(err);
             }
         })
-    };
-
+    }
     if (msg === ">" + 'HELP')
     {
         message.channel.send({embed});
@@ -73,22 +71,20 @@ bot.on('message', async message => {
                 return console.log(err);
             }
         })
-    };
-
+    }
     if (msg === ">" + 'START')
     {
         message.guild.createRole({name: 'Jeff'});
         message.channel.send('It is done');
         jeffRole = message.guild.roles.find("name", "Jeff");
-        message.channel.send('Please now use >jeffinate to begin the rise of the Jeffinators')
+        message.channel.send('Please now use >jeffinate to begin the rise of the Jeffinators');
         var timenow = Date.now();
         fs.appendFile("public/log.log", timenow + " Initialized Jeff on server " + message.guild.name + '\n', function (err) {
             if (err) {
                 return console.log(err);
             }
         })
-    };
-
+    }
     if (msg === ">" + 'JEFFINATOR') {
         message.guild.createRole({name: 'Jeffinator'});
         message.channel.send('It is done');
@@ -111,8 +107,7 @@ bot.on('message', async message => {
                 return console.log(err);
             }
         })
-    };
-
+    }
     if (msg === ">" + 'FINDJEFFINATOR') {
         jeffinatorRole = message.guild.roles.find("name", "Jeffinator");
         if (!jeffRole) {
@@ -127,8 +122,7 @@ bot.on('message', async message => {
                 return console.log(err);
             }
         })
-    };
-
+    }
     if (msg === ">" + 'PURGEJEFF')
     {
         console.log('purgejeff');
@@ -141,8 +135,7 @@ bot.on('message', async message => {
                 return console.log(err);
             }
         })
-    };
-
+    }
     if (command === 'jefficate')
     {
         jeffinatorRole = message.guild.roles.find("name", "Jeffinator");
